@@ -25,6 +25,7 @@ class TestResource extends Resource
     {
         return $form
             ->schema([
+                // This works fine all the time
                 DatePicker::make('date'),
             ]);
     }
@@ -33,7 +34,8 @@ class TestResource extends Resource
     {
         return $table
             ->columns([
-                TextInputColumn::make('date')->type('date')
+                // This is the problematic part since v3.2.134
+                TextInputColumn::make('date')->type('date'),
             ])
             ->filters([
                 //
